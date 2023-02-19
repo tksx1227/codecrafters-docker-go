@@ -22,8 +22,9 @@ func main() {
 	cmd.Stderr = os.Stderr
 
 	err := cmd.Run()
+	exitStatusCode := cmd.ProcessState.ExitCode()
 	if err != nil {
 		fmt.Printf("Err: %v", err)
-		os.Exit(1)
+		os.Exit(exitStatusCode)
 	}
 }
